@@ -1,9 +1,7 @@
 name: Deploy to EC2
-
 on:
   push:
     branches: [ main ]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,31 +15,7 @@ jobs:
       with:
         host: ec2-18-217-95-150.us-east-2.compute.amazonaws.com
         username: ubuntu
-        key: MIIEowIBAAKCAQEAxUmSxboFVxuGaI2Nhll21+LChNh0/rXvXXpM1olWONeB/Ink
-f1sUcgVv8OKdEzcEEVp/d422I3fj8wpiCXZISBiJgQplJ6m1km807vOZkyNv2/wK
-Pv+1cc70eBY2aTiRX73pLLe2PyotcXm1NBD55g5HFZqp03NGQFUiZ32mbHxgS/BQ
-tdBmg+i/jusfnEDkYhyQdsLhSsY5t0VZtGJLt3s7qG7a40mzOCpt9f0min0Kcuvw
-r1UR33YwNohPy8xWTWloZc3xsPb8oNBWdKlu6NolFZu0Da1ykLKV4W9OjC9L/E4O
-r2TRliiVmYQj9U7qGZEgCUgsrY3TgdDD9BZZIQIDAQABAoIBAHwfHchokJONLbL5
-2+B6yNpqQBd0V6cor8AQAee34BdC/vTzjF7T3rkd0p+q80fzhQul9CwzbDREaZWv
-Ip7xW+iAB4K4F4wsqZ/Hd3YerLB1yxqMJ6YbGvzPR9+FmhX5EP07bkhEDNUQpCaQ
-fACV7aNfuDlPZSkzjS9MYKjb1KjLO+tn32cwu2shjBDKslGlDyzl2O2D8Hsq57mU
-4v+ba/mVvCTg9/NTUFRBm4cgSoNoDEtQoU8VZ3dyOFaH/Vp9YRWf/ricUXQ15MIb
-2OxuV9en0nJjfewtNHDPgt+jzawrUM2JvMy0/9dl/Hqw2xVuwIr9cv7K0KUwdsV2
-bUbPywECgYEA8rczQ7GMeha6BMU+oJ+afi+98q7KXS+foBgQrEXRQLyGEHBRKClo
-XNq6H9pReYcB3b9Voyek+Xp4jMl/6tNv/t+qZ109ZtoooJaBKt+M+J6JPkhvqjZK
-cCKFIQfl46otk59oS+QUTkkslngNqSc2hXUmaWvMRXNkP4ig+Jkwtu0CgYEA0BXb
-ezDeSD4dM3jE0KrY2+cjRiRgcD5YjODkCMwOPTclte6F05TBoAdMcdD+Hj0VJ2pk
-dHkke0H2fLpqt5sc4/oCCCHtXPDJooWvqRjkAp70wBg8humyFJ86Ji1wGjf6yP9A
-5CHtl2PL5E37259xkEqgK8LADd7cnUZKzEQqkIUCgYBpZr1QbE4AxtXJNI7Z2fWR
-TtJCDT278e5z639yEG+qmTPu95eGxVSY3jNtmbU//S0GSwy5aYHvBQxMt0Rhiahd
-Gmw5rvf3Lk3uTu2Q3LuvS8l1zqcPV7xDrfn6Oh/PGhvou5TjQAzBYm2GemQUTP8U
-PaeMqE9w6YdjP8YHrx7EkQKBgBlpAeNaRVqnEyPM9KPSqSa5ZApVuN0cD+4sLEyS
-to5tJJLB7N+4g6iKG6Cud8mzhdjJWjkK7hSLKpFypkODkpSYXBUoJ3c5BDZvgtLw
-ci+Lv7GRhBqpgRCZnR06YT0iZuKSoRb6uavKCQT5LO9V2iVXp5WQc6l99IzUH6Aw
-Fs6NAoGBANMyJsb1fnkghLCrF1e2iLT26vsGDM2k1rM6NjGqKGFmxJSgb3/4HqI4
-ctP4r9/c18wfSMnMVycg3ohywtZApVs9y3xoG7vvGPU2nTIKXberEPi+dzrKL2Cl
-8vrbcMI1aClOdqnBhfVWWdlgbYTnOEwyeg/zYs5SetUxvaa2Pw87
+        key: ${{ secrets.EC2_SSH_KEY }}
         port: 22
         script: |
           echo "Hello from GitHub Actions!" > /tmp/github_message.txt
